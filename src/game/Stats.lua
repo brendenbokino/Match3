@@ -1,6 +1,7 @@
 local Class = require "libs.hump.class"
 local Timer = require "libs.hump.timer"
 local Tween = require "libs.tween" 
+local Sounds = require "src.game.SoundEffects"
 
 local statFontSize = 25
 local statFont = love.graphics.newFont(statFontSize)
@@ -118,6 +119,7 @@ function Stats:levelUp()
     self.y = gameHeight / 2
     self.tweenLevel = Tween.new(1, self, {y = 10})
     self.leveledUp = true
+    Sounds["levelUp"]:play()
 end
     
 return Stats

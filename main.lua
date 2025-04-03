@@ -76,13 +76,22 @@ function love.update(dt)
         gem1:update(dt)
         gem2:update(dt)
     elseif gameState == "play" then
+        if not Sounds["playStateMusic"]:isPlaying() then
+            Sounds["playStateMusic"]:play()
+        end
+        if Sounds["timeOut"]:isPlaying() then
+            Sounds["timeOut"]:stop()
+        end
         board:update(dt)
         stats:update(dt)
         if stats.timeOut then
+            Sounds["timeOut"]:play()
             gameState = "over"
         end
     elseif gameState == "over" then
-        -- for later, if we needed
+        if Sounds["playStateMusic"]:isPlaying() then
+            Sounds["playStateMusic"]:stop()
+        end
     end
 end
 

@@ -180,7 +180,7 @@ function Board:draw()
 
     if self.tweenBonusText then
         love.graphics.setColor(1,0,1, self.bonusText.transparency) -- Magenta
-        love.graphics.printf("Bonus!", bonusFont, self.bonusText.x - 24, self.bonusText.y + 20, 120,"center", math.rad(-20))
+        love.graphics.printf("Bonus!", bonusFont, self.bonusText.x - 30, self.bonusText.y + 20, 120,"center", math.rad(-20))
         love.graphics.setColor(1,1,1) -- White
     end
 end
@@ -372,6 +372,7 @@ function Board:explodeCoin()
         local coinRow, coinCol = self:convertPixelToMatrix(self.coin.x, self.coin.y)
         self:explodeGem(coinRow, coinCol)
         self.coin = nil
+        Sounds["coin"]:play()
     end
 end
 

@@ -13,5 +13,6 @@ sounds['playStateMusic']:setLooping(true) -- game music is looped
 sounds['playStateMusic']:setVolume(0.3) -- volume 40%
 
 sounds['levelUp']:setVolume(1) -- volume 100%
+sounds['levelUp']:setVolume(0.6) -- volume 60%
 
 return sounds
